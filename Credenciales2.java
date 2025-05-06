@@ -1,100 +1,98 @@
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
+//Patron Prototype
 
-//Patron Singleton
-public class Credenciales2 {
-    private String nombre;
-    private String cargo;
-    private String rut;
+public class Credenciales2 implements Cloneable {
+    private String titulo;
+    private List<String> campos;
 
-    private Credenciales2(String nombre, String cargo, String rut) {
-        this.nombre = nombre;
-        this.cargo = cargo;
-        this.rut = rut;
+    public Credenciales2(String titulo) {
+        this.titulo = titulo;
+        this.campos = new ArrayList<>();
+    }
+
+    public void personalizar(String titulo, String campo) {
+        this.titulo = titulo;
+        this.campos.add(campo);
     }
 
     @Override
-    public String toString() {
-        return "Nombre: " + nombre + " | Cargo: " + cargo + " | RUT: " + rut;
+    public Credenciales2 clone() {
+        try {
+            Credenciales2 clon = (Credenciales2) super.clone();
+            clon.campos = new ArrayList<>(this.campos); // Clonar lista de campos
+            return clon;
+        } catch (CloneNotSupportedException e) {
+            throw new AssertionError();
+        }
     }
 
-    public static class CredencialManager {
-        private static CredencialManager instance;
-        private final List<Credenciales2> listaCredenciales = new ArrayList<>();
-        private final Credenciales2 plantilla = new Credenciales2("Plantilla", "Cargo Base", "RUT Base");
-
-        private CredencialManager() {}
-
-        // Método para obtener la instancia única
-        public static CredencialManager getInstance() {
-            if (instance == null) {
-                instance = new CredencialManager();
-            }
-            return instance;
-        }
-        public void agregarCredencial(String nombre, String cargo, String rut) {
-            Credenciales2 nuevaCredencial = new Credenciales2(nombre, cargo, rut);
-            listaCredenciales.add(nuevaCredencial);
-            System.out.println("Credencial agregada exitosamente.");
-        }
-
-        public void mostrarCredenciales() {
-            if (listaCredenciales.isEmpty()) {
-                System.out.println("No hay credenciales generadas.");
-            } else {
-                System.out.println("\nCredenciales generadas:");
-                for (Credenciales2 c : listaCredenciales) {
-                    System.out.println(c);
-                }
-            }
-        }
-
-        public Credenciales2 clonarPlantilla() {
-            return new Credenciales2(plantilla.nombre, plantilla.cargo, plantilla.rut);
-        }
+    public void mostrar() {
+        System.out.println("Título: " + titulo);
+        System.out.println("Campos: " + campos);
+        ConfiguracionGlobal config = ConfiguracionGlobal.getInstancia();
+        System.out.println("Idioma: " + config.getIdioma());
+        System.out.println("Logo: " + config.getLogo());
     }
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        CredencialManager manager = CredencialManager.getInstance();
+        ConfiguracionGlobal config = ConfiguracionGlobal.getInstancia();
+        config.setIdioma("Inglés");
+        config.setLogo("Logo del Evento");
 
-        int opcion;
-        do {
-            System.out.println("\n--- MENÚ ---");
-            System.out.println("1. Agregar nueva credencial");
-            System.out.println("2. Ver credenciales generadas");
-            System.out.println("3. Salir");
-            System.out.print("Seleccione una opción: ");
-            opcion = scanner.nextInt();
-            scanner.nextLine();
 
-            switch (opcion) {
-                case 1:
-                    System.out.print("Ingrese el nombre: ");
-                    String nombre = scanner.nextLine();
-                    System.out.print("Ingrese el cargo: ");
-                    String cargo = scanner.nextLine();
-                    System.out.print("Ingrese el RUT: ");
-                    String rut = scanner.nextLine();
+        Credenciales2 credencialBase = new Credenciales2("Credencial Base");
+        credencialBase.personalizar("Credencial Base", "Nombre del Asistente");
+        credencialBase.personalizar("Credencial Base", "Correo Electrónico");
 
-                    manager.agregarCredencial(nombre, cargo, rut);
-                    break;
+        Credenciales2 credencialRegistro = credencialBase.clone();
+        credencialRegistro.personalizar("Credencial de Registro", "Teléfono de Contacto");
 
-                case 2:
-                    manager.mostrarCredenciales();
-                    break;
+        Credenciales2 credencialEncuesta = credencialBase.clone();
+        credencialEncuesta.personalizar("Credencial de Encuesta", "Edad del Asistente");
 
-                case 3:
-                    System.out.println("Saliendo del programa...");
-                    break;
+        System.out.println("Credencial Base:");
+        credencialBase.mostrar();
 
-                default:
-                    System.out.println("Opción no válida. Intente nuevamente.");
-            }
-        } while (opcion != 3);
+        System.out.println("\nCredencial de Registro:");
+        credencialRegistro.mostrar();
 
-        scanner.close();
+        System.out.println("\nCredencial de Encuesta:");
+        credencialEncuesta.mostrar();
+    }
+}
+
+class ConfiguracionGlobal {
+    private static ConfiguracionGlobal instancia;
+    private String idioma;
+    private String logo;
+
+    private ConfiguracionGlobal() {
+        this.idioma = "Español";
+        this.logo = "Logo por defecto";
+    }
+
+    public static ConfiguracionGlobal getInstancia() {
+        if (instancia == null) {
+            instancia = new ConfiguracionGlobal();
+        }
+        return instancia;
+    }
+
+    public String getIdioma() {
+        return idioma;
+    }
+
+    public void setIdioma(String idioma) {
+        this.idioma = idioma;
+    }
+
+    public String getLogo() {
+        return logo;
+    }
+
+    public void setLogo(String logo) {
+        this.logo = logo;
     }
 }
