@@ -18,7 +18,89 @@ Imagen de codigo funcionando Prototype
 
 Imagen de codigo funcionando Singleton
 
-![Image Alt](https://github.com/TheSebita122/Entrega-Trabajos/blob/9340cb6a83f5299f484d62612f49e531868b4d5f/Codigo%20Funcional.png)
+![Image Alt](https://github.com/TheSebita122/Entrega-Trabajos/blob/6333b39f22af3963512558e3337a4710a13d69bc/UML%20Credenciales.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
