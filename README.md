@@ -18,6 +18,18 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 #Imagen de codigo funcionando Singleton
 
 ![Image Alt](https://github.com/TheSebita122/Entrega-Trabajos/blob/c8469369b1d2c3e2e4314025eee7d9b1eb27a742/Codigo%20Funcional.png)
