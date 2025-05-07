@@ -83,9 +83,6 @@ Imagenes de Codigo UML de credenciales
 
 
 
-
-
-
 Imagen de codigo funcionando Singleton
 
 ![Image Alt](https://github.com/TheSebita122/Entrega-Trabajos/blob/2e03694fc8889c1ce98eccb0bf36c013601ad2d3/Codigo%20Funcional.png)
