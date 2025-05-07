@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-//Patron Prototype
+//Patron Singleton
 
 public class Credenciales implements Cloneable {
     private String nombre;
