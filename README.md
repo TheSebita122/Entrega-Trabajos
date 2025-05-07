@@ -1,10 +1,54 @@
 Imagen de codigo funcionando Prototype 
 
-![Image Alt](Codigo Funcional De Patron Prototype.png)
+![Image Alt](https://github.com/TheSebita122/Entrega-Trabajos/blob/53f56ac479da0ab4c11db30d30d0acfcb66d10c5/Codigo%20Funcional%20De%20Patron%20Prototype.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 Imagen de codigo funcionando Singleton
 
 ![Image Alt](https://github.com/TheSebita122/Entrega-Trabajos/blob/9340cb6a83f5299f484d62612f49e531868b4d5f/Codigo%20Funcional.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 Imagenes de Codigo UML de credenciales
